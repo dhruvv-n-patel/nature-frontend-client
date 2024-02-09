@@ -26,10 +26,8 @@ jobs:
       - name: Install Docker credential helper
         run: |
               mkdir -p ~/.docker/cli-plugins
-              curl -fsSL "https://github.com/docker/docker-credential-helpers/releases/download/v0.7.6/docker-credential-secretservice-v0.7.6-linux-amd64.tar.gz" | tar xz -C ~/.docker/cli-plugins/
-              chmod +x ~/.docker/cli-plugins/docker-credential-secretservice
-              docker-credential-secretservice version
-              docker-credential-secretservice store <(echo "{\"Username\":\"${{ secrets.DOCKER_USERNAME }}\",\"Secret\":\"${{ secrets.DOCKER_PASSWORD }}\"}")
+              docker-credential-manager install
+              docker-credential-manager configure
 
 
       - name: Log in to Docker Hub
