@@ -23,15 +23,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Install Docker credential helper
-        run: |
-              mkdir -p ~/.docker/cli-plugins
-              curl -fsSL https://github.com/docker/docker-credential-helpers/releases/download/v0.7.6/docker-credential-secretservice-v0.7.6-linux-amd64.tar.gz | tar xz -C ~/.docker/cli-plugins/
-              chmod +x ~/.docker/cli-plugins/docker-credential-secretservice
-              docker-credential-secretservice version
-              docker-credential-secretservice configure-docker
-
-
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
