@@ -1,10 +1,9 @@
 # Use the official Nginx image as the base image
 FROM nginx:latest
-RUN apt-get update && apt-get install -y git
 # Copy the index.html file and other directories from the current directory into the Nginx default public directory
 COPY index.html /usr/share/nginx/html/
 COPY css /usr/share/nginx/html/css/
-COPY img /usr/share/nginx/html/image/
+COPY img /usr/share/nginx/html/img/
 COPY sass /usr/share/nginx/html/sass/
 COPY package.json /usr/share/nginx/html/sass/
 # Expose port 80 to the outside world
