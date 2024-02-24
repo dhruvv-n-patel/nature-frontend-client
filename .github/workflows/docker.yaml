@@ -30,7 +30,7 @@ jobs:
       - name: Tag Docker image
         env:
          IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client
-        run: docker tag my_image ${IMAGE_NAME}:${{ github.event.inputs.tag }}
+        run: docker tag my_image ${IMAGE_NAME}:latest
 
       - name: Push Docker image
-        run: docker push ${IMAGE_NAME}:${{ github.event.inputs.tag }}
+        run: docker push ${IMAGE_NAME}:latest
