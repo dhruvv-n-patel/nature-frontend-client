@@ -27,5 +27,8 @@ jobs:
       - name: Build Docker image
         run: docker build -t my_image .
 
+      - name: Tag Docker image
+        run: docker tag my_image ${{secrets.DOCKER_USERNAME}}/my_image
+
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/my_image
