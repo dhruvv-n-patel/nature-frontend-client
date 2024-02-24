@@ -29,4 +29,4 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker buildx create --use
-          docker buildx build -t $IMAGE_NAME:$IMAGE_TAG . --push
+          docker buildx build -t ${IMAGE_NAME}:${IMAGE_TAG} . --push
