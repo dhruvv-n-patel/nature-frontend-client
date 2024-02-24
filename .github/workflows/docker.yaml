@@ -20,7 +20,7 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-        
+
       - name: Build and push Docker image
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -28,4 +28,6 @@ jobs:
           IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client
           IMAGE_TAG: latest
         run: |
-          docker push ${IMAGE_NAME}:latest
+          docker build -t my_image_1 .
+          docker tag my_image_1 my_repository:2.1
+          docker push ${IMAGE_NAME}:2.1
