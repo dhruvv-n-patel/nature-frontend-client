@@ -28,6 +28,4 @@ jobs:
         run: docker build -t my_image .
 
       - name: Push Docker image
-        env:
-         IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client
-        run: docker push ${IMAGE_NAME}:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client:latest
