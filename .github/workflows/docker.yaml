@@ -28,5 +28,4 @@ jobs:
           IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/nature-frontend-client
           IMAGE_TAG: latest
         run: |
-          docker buildx create --use
-          docker buildx build -t ${IMAGE_NAME}:${IMAGE_TAG} . --push
+          docker push ${IMAGE_NAME}:latest
