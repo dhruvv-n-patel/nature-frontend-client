@@ -29,5 +29,5 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker build -t my_image_1 .
-          docker tag my_image_1 my_repository:2.1
+          docker tag my_image_1 ${IMAGE_NAME}:2.1
           docker push ${IMAGE_NAME}:2.1
