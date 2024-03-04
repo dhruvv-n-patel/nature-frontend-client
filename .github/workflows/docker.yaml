@@ -31,7 +31,7 @@ jobs:
         run: docker build -t ${{ github.event.inputs.image }} .
 
       - name: Tag Docker image
-        run: docker tag my_image ${{secrets.DOCKER_USERNAME}}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}
+        run: docker tag ${{ github.event.inputs.image }} ${{secrets.DOCKER_USERNAME}}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}
